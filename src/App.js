@@ -44,22 +44,22 @@ const allMenuData = menuData.flat();
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState(0);
   const { cart, addToCart } = useContext(AppContext);
-  const sectionRefs = useRef(categories.map(() => React.createRef()));
   const navigate = useNavigate();
 
   const handleTabClick = (index) => {
     setSelectedCategory(index);
     const element = document.getElementById(`category-${index}`);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const offsets = sectionRefs.current.map(ref => {
-        if (!ref.current) return Infinity;
-        return Math.abs(ref.current.getBoundingClientRect().top - 80);
+      const offsets = categories.map((cat, idx) => {
+        const el = document.getElementById(`category-${idx}`);
+        if (!el) return Infinity;
+        return Math.abs(el.getBoundingClientRect().top - 80);
       });
       const minIdx = offsets.indexOf(Math.min(...offsets));
       setSelectedCategory(minIdx);
@@ -69,7 +69,6 @@ function Home() {
   }, []);
 
   const handleAdd = (menu) => {
-    console.log('handleAdd', menu);
     addToCart(menu);
   };
 
@@ -78,7 +77,6 @@ function Home() {
   };
 
   const handleCartClick = () => {
-    console.log('cart click');
     navigate('/cart');
   };
 
@@ -92,7 +90,7 @@ function Home() {
       />
       <div style={{ padding: '16px', paddingBottom: '80px' }}>
         {categories.map((cat, idx) => (
-          <div key={cat} ref={sectionRefs.current[idx]} style={{ marginBottom: '32px' }}>
+          <div key={cat} id={`category-${idx}`} style={{ marginBottom: '32px' }}>
             <h2>{cat}</h2>
             <MenuList 
               menus={menuData[idx]}
