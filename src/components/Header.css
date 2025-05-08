@@ -1,0 +1,80 @@
+.header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 16px 20px 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  height: 32px;
+}
+.store-name {
+  flex: 1;
+  text-align: left;
+  color: #222;
+}
+.table-number {
+  flex: 1;
+  text-align: center;
+  color: #444;
+  font-size: 18px;
+}
+.notice-icon {
+  flex: 0;
+  font-size: 24px;
+  margin-left: 16px;
+  color: #666;
+}
+.notice-box {
+  border: 2px solid #e74c3c;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  color: #444;
+  font-size: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.notice-box:hover {
+  background: #fff9f9;
+}
+.notice-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.notice-box.expanded .notice-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+.notice-toggle {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 12px;
+  color: #666;
+  padding: 4px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.notice-toggle:hover {
+  transform: scale(1.1);
+} 

@@ -1,0 +1,28 @@
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 8px 10px 8px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 56px;
+  z-index: 11;
+}
+.category-tab {
+  flex: 0 0 auto;
+  background: #eee;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 15px;
+  margin-right: 4px;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.2s, color 0.2s;
+}
+.category-tab.selected {
+  background: #e74c3c;
+  color: #fff;
+  font-weight: bold;
+} 

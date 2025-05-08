@@ -1,0 +1,16 @@
+.menu-list {
+  margin-top: 8px;
+}
+.menu-list h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 18px 0 10px 0;
+  color: #222;
+}
+
+/* 카테고리별 구분선 스타일 */
+.menu-list + .menu-list {
+  border-top: 2px solid #eee;
+  margin-top: 24px;
+  padding-top: 16px;
+} 
